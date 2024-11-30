@@ -4,6 +4,7 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// schema.prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,4 +12,176 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum FitnessLevel {
+  Beginner
+  Intermediate
+  Advanced
+}
+
+model UserProfile {
+  id              String        @id @default(uuid()) @map("id") // Same as Supabase Auth user ID
+  firstName       String?
+  lastName        String?
+  age             Int?
+  gender          Gender?
+  heightCm        Float?
+  weightKg        Float?
+  profilePicUrl   String?
+  fitnessLevel    FitnessLevel?
+  medicalHistory  String?
+  lifestyleHabits String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  // Relations
+  workoutPrograms WorkoutProgram[]
+  workoutSessions WorkoutSession[]
+  progressEntries Progress[]
+
+  @@map("user_profiles")
+}
+
+model Exercise {
+  id          Int      @id // Matches Wger API exercise ID
+  name        String
+  description String?
+  muscleGroup String?
+  equipment   String?
+  imageUrls   Json?
+  category    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  workoutExercises WorkoutExercise[]
+  sessionExercises SessionExercise[]
+}
+
+model WorkoutProgram {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  creatorId   String
+  isPublic    Boolean  @default(false)
+  aiAnalysis  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  creator     UserProfile      @relation(fields: [creatorId], references: [id])
+  workoutDays WorkoutDay[]
+  sessions    WorkoutSession[] @relation("ProgramSessions") // Added inverse relation
+
+  @@map("workout_programs")
+}
+
+model WorkoutDay {
+  id          String   @id @default(uuid())
+  programId   String
+  dayNumber   Int
+  name        String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  program   WorkoutProgram    @relation(fields: [programId], references: [id])
+  exercises WorkoutExercise[]
+  sessions  WorkoutSession[]  @relation("DaySessions") // Added inverse relation
+
+  @@unique([programId, dayNumber])
+  @@map("workout_days")
+}
+
+model WorkoutExercise {
+  id            String   @id @default(uuid())
+  workoutDayId  String
+  exerciseId    Int
+  order         Int
+  sets          Int
+  reps          Int
+  restPeriodSec Int?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  workoutDay WorkoutDay @relation(fields: [workoutDayId], references: [id])
+  exercise   Exercise   @relation(fields: [exerciseId], references: [id])
+
+  @@map("workout_exercises")
+}
+
+model WorkoutSession {
+  id           String   @id @default(uuid())
+  userId       String
+  programId    String? // Optional if the session is part of a program
+  workoutDayId String? // Optional if the session is part of a program day
+  date         DateTime @default(now())
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  user             UserProfile       @relation(fields: [userId], references: [id])
+  program          WorkoutProgram?   @relation("ProgramSessions", fields: [programId], references: [id])
+  workoutDay       WorkoutDay?       @relation("DaySessions", fields: [workoutDayId], references: [id])
+  sessionExercises SessionExercise[]
+
+  @@map("workout_sessions")
+}
+
+model SessionExercise {
+  id         String   @id @default(uuid())
+  sessionId  String
+  exerciseId Int
+  order      Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  session  WorkoutSession @relation(fields: [sessionId], references: [id])
+  exercise Exercise       @relation(fields: [exerciseId], references: [id])
+  sets     Set[]
+
+  @@map("session_exercises")
+}
+
+model Set {
+  id                String   @id @default(uuid())
+  sessionExerciseId String
+  setNumber         Int
+  reps              Int
+  weightKg          Float
+  restPeriodSec     Int?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  sessionExercise SessionExercise @relation(fields: [sessionExerciseId], references: [id])
+
+  @@map("sets")
+}
+
+model Progress {
+  id        String   @id @default(uuid())
+  userId    String
+  date      DateTime @default(now())
+  weightKg  Float?
+  heightCm  Float?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user UserProfile @relation(fields: [userId], references: [id])
+
+  @@map("progress_entries")
 }
