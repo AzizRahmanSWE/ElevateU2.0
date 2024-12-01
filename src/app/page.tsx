@@ -2,7 +2,7 @@ import { ContainerScroll } from "@/components/global/container-scroll-animation"
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
-import { clients } from "@/lib/constants";
+import { clients } from "@/lib/constant";
 // import TestDatabaseConnection from "../components/TestDatabaseConnection";
 
 export default function Home() {

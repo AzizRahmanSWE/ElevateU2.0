@@ -26,9 +26,10 @@ enum FitnessLevel {
 }
 
 model UserProfile {
-  id              String        @id @default(uuid()) @map("id") // Same as Supabase Auth user ID
+  id              Int      @id @default(autoincrement())
   firstName       String?
   lastName        String?
+  clerkId         String?  @unique @db.VarChar(255)
   age             Int?
   gender          Gender?
   heightCm        Float?
@@ -68,7 +69,7 @@ model WorkoutProgram {
   id          String   @id @default(uuid())
   name        String
   description String?
-  creatorId   String
+  creatorId   Int
   isPublic    Boolean  @default(false)
   aiAnalysis  String?
   createdAt   DateTime @default(now())
@@ -121,7 +122,7 @@ model WorkoutExercise {
 
 model WorkoutSession {
   id           String   @id @default(uuid())
-  userId       String
+  userId       Int
   programId    String? // Optional if the session is part of a program
   workoutDayId String? // Optional if the session is part of a program day
   date         DateTime @default(now())
@@ -172,7 +173,7 @@ model Set {
 
 model Progress {
   id        String   @id @default(uuid())
-  userId    String
+  userId    Int
   date      DateTime @default(now())
   weightKg  Float?
   heightCm  Float?
