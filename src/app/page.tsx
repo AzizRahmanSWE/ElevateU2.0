@@ -1,8 +1,13 @@
-import { ContainerScroll } from "@/components/global/container-scroll-animation";
+import { ContainerScroll }  from "@/components/global/container-scroll-animation";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
-import { clients } from "@/lib/constant";
+import { clients, products } from "@/lib/constant";
+import { HeroParallax } from "@/components/global/connect-parallax";
+import { LampComponent } from "@/components/global/lamp";
+import { CardBody, CardContainer, CardItem } from '@/components/global/3d-card'
+import { CheckIcon } from 'lucide-react'
+
 // import TestDatabaseConnection from "../components/TestDatabaseConnection";
 
 export default function Home() {
@@ -10,7 +15,7 @@ export default function Home() {
     <main className="">
       <Navbar />
       <section className="h-screen w-full bg-neutral-950 rounded-md !overflow-visible relative flex flex-col items-center antialiased">
-        <div className="absolute inset-0  h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#001_35%,#223_100%)]"></div>
+        <div className="absolute inset-0  h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>
         <div className="flex flex-col mt-[-100px] md:mt-[-50px]">
           <ContainerScroll
             titleComponent={
@@ -37,38 +42,38 @@ export default function Home() {
         direction="right"
         speed="slow"
       />
-      {/* <section>
-        <HeroParallax products={products}></HeroParallax>
+      <section>
+        <HeroParallax products={products} />
       </section>
-      <section className="mt-[-500px]">
+      
+      <section className="mt-[-500px] mb-20">
         <LampComponent />
         <div className="flex flex-wrap items-center justify-center flex-col md:flex-row gap-8 -mt-72">
           <CardContainer className="inter-var ">
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
               >
-                Hobby
+                Basic Plan
                 <h2 className="text-6xl ">$0</h2>
               </CardItem>
               <CardItem
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Get a glimpse of what our software is capable of. Just a heads
-                up {"you'll"} never leave us after this!
+                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />3 Free workout plans
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    100 tasks per month
+                    100 exercises per month
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Two-step Actions
+                    Personalized coaching tips
                   </li>
                 </ul>
               </CardItem>
@@ -91,7 +96,7 @@ export default function Home() {
             </CardBody>
           </CardContainer>
           <CardContainer className="inter-var ">
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-[#E2CBFF] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-[#E2CBFF] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
@@ -103,19 +108,18 @@ export default function Home() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Get a glimpse of what our software is capable of. Just a heads
-                up {"you'll"} never leave us after this!
+                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />5 Advanced workout plans
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    100 tasks per month
+                    200 exercises per month
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Two-step Actions
+                    Personalized coaching tips
                   </li>
                 </ul>
               </CardItem>
@@ -138,7 +142,7 @@ export default function Home() {
             </CardBody>
           </CardContainer>
           <CardContainer className="inter-var ">
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-neutral-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full md:!w-[350px] h-auto rounded-xl p-6 border">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white "
@@ -150,19 +154,18 @@ export default function Home() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Get a glimpse of what our software is capable of. Just a heads
-                up {"you'll"} never leave us after this!
+                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />3 Free automations
+                    <CheckIcon />Unlimited workout plans
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    100 tasks per month
+                    Unlimited exercises
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />
-                    Two-step Actions
+                    Personalized coaching tips
                   </li>
                 </ul>
               </CardItem>
@@ -185,7 +188,7 @@ export default function Home() {
             </CardBody>
           </CardContainer>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

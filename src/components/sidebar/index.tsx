@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -50,7 +51,7 @@ const MenuOptions = (props: Props) => {
                     </Link>
                   </li>
                 </TooltipTrigger>
-                <TooltipContent
+                <TooltipContent // shows text/tag on hover
                   side="right"
                   className="bg-black/10 backdrop-blur-xl"
                 >

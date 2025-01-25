@@ -1,6 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
-// import { ModeToggle } from '../global/mode-toggle'
+import React from 'react'
 import { Book, Headphones, Search } from 'lucide-react'
 // import Templates from '../icons/cloud_download'
 import { Input } from '@/components/ui/input'
@@ -15,9 +14,9 @@ import { UserButton } from '@clerk/nextjs'
 // import { useBilling } from '@/providers/billing-provider'
 // import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/payment-connecetions'
 
-type Props = {}
+// type Props = {}
 
-const InfoBar = (props: Props) => {
+const InfoBar = () => {
   // const { credits, tier, setCredits, setTier } = useBilling()
 
   // const onGetPayment = async () => {
@@ -72,7 +71,7 @@ const InfoBar = (props: Props) => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <UserButton />
+      <UserButton afterSignOutUrl="/" />
     </div>
   )
 }

@@ -4,22 +4,21 @@ import React from 'react'
 import { MenuIcon } from 'lucide-react'
 import { UserButton } from '@clerk/nextjs'
 
-type Props = {}
 
-const Navbar = async (props: Props) => {
+// type Props = {}
+
+const Navbar = async () => {
   // const user = await currentUser()
   return (
     <header className="fixed right-0 left-0 top-0 py-4 px-4 bg-black/40 backdrop-blur-lg z-[100] flex items-center border-b-[1px] border-neutral-900 justify-between">
       <aside className="flex items-center gap-[2px]">
-        <p className="text-3xl font-bold">Elevate</p>
-        {/* <Image
-          src="/fuzzieLogo.png"
-          width={15}
-          height={15}
-          alt="fuzzie logo"
+        <Image
+          src="/elevateuLogo.png"
+          width={200}
+          height={200}
+          alt="elevate logo"
           className="shadow-sm"
-        /> */}
-        <p className="text-3xl font-bold">U</p>
+        />
       </aside>
       <nav className="absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%] hidden md:block">
         <ul className="flex items-center gap-4 list-none">
@@ -27,16 +26,16 @@ const Navbar = async (props: Props) => {
             <Link href="#">Workouts</Link>
           </li>
           <li>
+            <Link href="#">Create Workouts</Link>
+          </li>
+          <li>
+            <Link href="#">All Workouts</Link>
+          </li>
+          <li>
+            <Link href="#">Current Workouts</Link>
+          </li>
+          <li>
             <Link href="#">Progress</Link>
-          </li>
-          <li>
-            <Link href="#">Community</Link>
-          </li>
-          <li>
-            <Link href="#">Nutrition</Link>
-          </li>
-          <li>
-            <Link href="#">Programs</Link>
           </li>
           <li>
             <Link href="#">Profile</Link>
@@ -55,7 +54,9 @@ const Navbar = async (props: Props) => {
           </span>
         </Link>
         {/* {user ? <UserButton afterSignOutUrl="/" /> : null} */}
-          <UserButton afterSignOutUrl="/" />
+        <UserButton afterSignOutUrl="/" />
+
+
         <MenuIcon className="md:hidden" />
       </aside>
     </header>

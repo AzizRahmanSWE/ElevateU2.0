@@ -94,13 +94,13 @@ export const products = [
 
 // Different Pages Options SideBar
 export const menuOptions = [
-  { name: 'Dashboard', Component: Home, href: '/dashboard' },
-  { name: 'Workflows', Component: Workflows, href: '/workflows' },
-  { name: 'Settings', Component: Settings, href: '/settings' },
-  { name: 'Connections', Component: Category, href: '/connections' },
-  { name: 'Billing', Component: Payment, href: '/billing' },
+  { name: 'Create Workouts', Component: Home, href: '/dashboard' },
+  { name: 'All Workouts', Component: Workflows, href: '/all-workouts' },
+  { name: 'Current Workouts', Component: Settings, href: '/current-workouts' },
+  { name: 'Completed Workouts', Component: Category, href: '/completed-workouts' },
+  { name: 'Settings', Component: Payment, href: '/settings' },
   { name: 'Templates', Component: Templates, href: '/templates' },
-  { name: 'Logs', Component: Logs, href: '/logs' },
+  { name: 'Complete Profile', Component: Logs, href: '/complete-profile' },
 ]
 
 // export const EditorCanvasDefaultCardTypes = {
