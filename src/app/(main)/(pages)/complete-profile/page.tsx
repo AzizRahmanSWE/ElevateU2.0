@@ -1,35 +1,20 @@
+'use client';
+import { CompleteProfileForm } from "@/components/forms/user-input-form";
 
-import ProfileForm from "../../../../components/forms/user-input-form";
-// type Props = {};
-
-const Settings = async () => {
+export default function CompleteProfile() {
   return (
-    <div className="pt-24 flex flex-col gap-4">
-      <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
-        <span>Settings</span>
-      </h1>
-
-      {/* <div className="flex flex-col gap-10 p-6">
-        <div>
-          <h2 className="text-2xl font-bold">User Profile</h2>
-          <p className="text-base text-white/50">
-            Add or update your information
-          </p>
-        </div>
-        <ProfilePicture
-          onDelete={removeProfileImage}
-          userImage={user?.profileImage || ''}
-          onUpload={uploadProfileImage}
-        />
-        <ProfileForm
-          user={user}
-          onUpdate={updateUserInfo}
-        />
-      </div> */}
-
-      <ProfileForm />
+    <div className="container max-w-2xl py-12">
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-semibold tracking-tight">
+          Complete Your Profile
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          Please fill out your profile information to continue
+        </p>
+      </div>
+      <CompleteProfileForm />
     </div>
+  </div>
   );
 };
-
-export default Settings;

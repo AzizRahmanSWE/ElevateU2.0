@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { Book, Headphones, Search } from 'lucide-react'
-// import Templates from '../icons/cloud_download'
 import { Input } from '@/components/ui/input'
 
 import {
@@ -10,7 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { UserButton } from '@clerk/nextjs'
+
 // import { useBilling } from '@/providers/billing-provider'
 // import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/payment-connecetions'
 
@@ -71,7 +70,6 @@ const InfoBar = () => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <UserButton afterSignOutUrl="/" />
     </div>
   )
 }

@@ -1,12 +1,12 @@
-import { ContainerScroll }  from "@/components/global/container-scroll-animation";
+import { ContainerScroll } from "@/components/global/container-scroll-animation";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/global/infinite-moving-cards";
 import { clients, products } from "@/lib/constant";
 import { HeroParallax } from "@/components/global/connect-parallax";
 import { LampComponent } from "@/components/global/lamp";
-import { CardBody, CardContainer, CardItem } from '@/components/global/3d-card'
-import { CheckIcon } from 'lucide-react'
+import { CardBody, CardContainer, CardItem } from "@/components/global/3d-card";
+import { CheckIcon } from "lucide-react";
 
 // import TestDatabaseConnection from "../components/TestDatabaseConnection";
 
@@ -21,11 +21,11 @@ export default function Home() {
             titleComponent={
               <div className="flex items-center flex-col">
                 <Button
-                  size={'lg'}
+                  size={"lg"}
                   className="p-8 mb-8 md:mb-0 text-2xl w-full sm:w-fit border-t-2 rounded-full border-[#4D4D4D] bg-[#1F1F1F] hover:bg-white group transition-all flex items-center justify-center gap-4 hover:shadow-xl hover:shadow-neutral-500 duration-500"
                 >
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-500 to-neutral-600  md:text-center font-sans group-hover:bg-gradient-to-r group-hover:from-black goup-hover:to-black">
-                    Start For Free Today
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-500 to-neutral-600 md:text-center font-sans group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-black">
+                    Create Your AI Workout Plan
                   </span>
                 </Button>
                 <h1 className="text-5xl md:text-8xl  bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-600 font-sans font-bold">
@@ -45,7 +45,7 @@ export default function Home() {
       <section>
         <HeroParallax products={products} />
       </section>
-      
+
       <section className="mt-[-500px] mb-20">
         <LampComponent />
         <div className="flex flex-wrap items-center justify-center flex-col md:flex-row gap-8 -mt-72">
@@ -62,7 +62,8 @@ export default function Home() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
+                Discover the potential of our fitness AI workout creating
+                program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
                     <CheckIcon />3 Free workout plans
@@ -108,7 +109,8 @@ export default function Home() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
+                Discover the potential of our fitness AI workout creating
+                program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
                     <CheckIcon />5 Advanced workout plans
@@ -154,10 +156,12 @@ export default function Home() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Discover the potential of our fitness AI workout creating program application. Once you try it, you&apos;ll be hooked!
+                Discover the potential of our fitness AI workout creating
+                program application. Once you try it, you&apos;ll be hooked!
                 <ul className="my-4 flex flex-col gap-2">
                   <li className="flex items-center gap-2">
-                    <CheckIcon />Unlimited workout plans
+                    <CheckIcon />
+                    Unlimited workout plans
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckIcon />

@@ -1,22 +1,20 @@
 import { NextResponse } from "next/server";
-import createOrUpdateUser from "../../../../../lib/db/insert-user";
+import createOrUpdateUser from "../../../../../db/insert-user"
 
 export async function POST(req: Request) {
   try {
     const user = await req.json();
-
-    if (!user || !user.clerkId || !user.email) {
-      return NextResponse.json(
-        { status: 400, message: "User data is required" },
-        { status: 400 }
-      );
+    console.log("📥 Received user:", user);
+    if (!user.clerkId || !user.firstName || !user.lastName) {
+        return NextResponse.json({ status: 400, message: "Missing required fields" });
     }
-    const createdUser = await createOrUpdateUser(user);
-    return NextResponse.json(
-      { status: 201, data: createdUser },
-      { status: 201 }
-    );
+    
+    const createdUser = await createOrUpdateUser(user)
+    console.log("✅ User created/updated:", createdUser);
+
+    return NextResponse.json({ success: true, data: createdUser }, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ status: 500, message: error.message }, { status: 500 });
+    console.error("❌ Failed to create/update user:", error);
+    return NextResponse.json({ success: false, error: "Internal Server Error" }, { status: 500 });
   }
 }
